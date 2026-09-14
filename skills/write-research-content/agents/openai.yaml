@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research Content"
+  short_description: "Run lightweight academic, legal, and company research"
+  default_prompt: "Use $write-research-content to research this question and produce a source-grounded brief."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Professional Communication"
+  short_description: "Draft emails, memos, reports, and formal messages"
+  default_prompt: "Use $write-professional-communication to draft this message for the recipient and required outcome."
+policy:
+  allow_implicit_invocation: false

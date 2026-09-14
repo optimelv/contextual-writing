@@ -1,0 +1,6 @@
+interface:
+  display_name: "Academic Content"
+  short_description: "Draft and revise evidence-grounded academic prose"
+  default_prompt: "Use $write-academic-content to draft or revise this academic section from my supplied sources and notes."
+policy:
+  allow_implicit_invocation: false

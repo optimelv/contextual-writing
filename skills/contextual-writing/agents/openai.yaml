@@ -1,0 +1,6 @@
+interface:
+  display_name: "Contextual Writing"
+  short_description: "Route writing tasks through context-aware workflows"
+  default_prompt: "Use $contextual-writing to create or revise this text for its actual audience and purpose."
+policy:
+  allow_implicit_invocation: true

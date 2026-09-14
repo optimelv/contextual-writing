@@ -1,0 +1,459 @@
+{
+  "version": "1.3",
+  "evaluation": {
+    "mode": "manual_fresh_model",
+    "execution": "Run each case in a fresh model context and record the output against the required and forbidden properties.",
+    "deterministic_tests": [
+      "valid JSON and schema",
+      "unique case IDs",
+      "coverage of every installed writing workflow",
+      "non-empty prompts, properties, and scoring dimensions"
+    ],
+    "not_a_benchmark": true,
+    "quality_claim": "This pack defines a repeatable qualitative review protocol. It does not contain model scores or prove comparative model performance."
+  },
+  "cases": [
+    {
+      "id": "router_01_context_gate",
+      "route": "contextual-writing",
+      "prompt": "I need help writing something professional. I have not shared the audience, purpose, language, source material, risk level, or requested format yet.",
+      "required_properties": [
+        "ask only for the decision-critical context needed to route and draft",
+        "identify deliverable, audience, purpose, language or locale, evidence, risk, and output format",
+        "avoid drafting unsupported content before the context is sufficient"
+      ],
+      "forbidden_properties": [
+        "force a universal writing style",
+        "invent an audience, facts, or preferred language",
+        "route to a specialist workflow without explaining the fit"
+      ],
+      "scoring_dimensions": [
+        "context fit",
+        "intake sufficiency",
+        "routing clarity",
+        "evidence discipline"
+      ]
+    },
+    {
+      "id": "router_02_proactive_career_outreach",
+      "route": "contextual-writing",
+      "prompt": "I want to cold email a startup COO about an operations internship. I have not yet supplied the company, recipient name, outreach mode, timing, current company observation or source, relevant experience, language, call to action, or attachment expectations. State which workflow owns this and ask only for the information that would materially change the draft. Do not write the email yet.",
+      "required_properties": [
+        "route applicant-to-startup outreach to career documents rather than commercial sales",
+        "ask a compact form for the missing outreach mode, target, recipient, timing, evidence, language, next step, and attachment context",
+        "request a current company observation with source and date or offer research as an evidence layer",
+        "avoid drafting through the material gaps"
+      ],
+      "forbidden_properties": [
+        "route the request to B2B sales merely because it is outreach",
+        "assume that no CV or an attached CV is universally correct",
+        "invent company facts, hiring demand, applicant evidence, or preferred language"
+      ],
+      "scoring_dimensions": [
+        "routing ownership",
+        "intake proportionality",
+        "research boundary",
+        "drafting restraint"
+      ]
+    },
+    {
+      "id": "career_01_sparse_bachelor_cv",
+      "route": "write-career-documents",
+      "prompt": "Create the complete German content for a one-page CV for a Bachelor student applying to a strategy internship in Germany, and state which native layout you would use. Verified profile: Jonas Becker; Universität zu Köln, BSc BWL, 10/2023 to expected 09/2027, grade 1.8, focus Finance, Strategy and Business Analytics; Gymnasium am Stadtpark, Abitur 08/2015 to 06/2023, grade 1.6. Internship Rheinwerk Konsumgüter GmbH, Corporate Development, Cologne, 06/2025 to 08/2025: analysed revenue and margin development in four European markets; built an Excel dashboard that reduced weekly reporting effort by about 30%; structured a competitor analysis and derived three priority actions. Internship Nexora Software GmbH, Business Development, Bonn, 02/2024 to 04/2024: qualified 120 B2B prospects; conducted twelve customer interviews; built weekly funnel reporting. Campus Consulting Köln e. V., project member, 10/2024 to present: supported market analysis with eight expert interviews and prepared the client presentation. Social Impact Lab Köln, Finance and Partnerships, 11/2023 to present: built a list of 40 partners and coordinated three events with more than 150 participants. Languages: German native, English C1, Spanish B1. Tools: Excel, PowerPoint, Power BI, basic Python. Use the sparse early-career layout and do not invent anything. This case tests content and layout selection only; return finished structured content rather than a file.",
+      "required_properties": [
+        "use the early-career native CV variant when the verified evidence is sparse",
+        "place education first unless a target convention or stronger evidence supports another order",
+        "use only defensible evidence and preserve a consistent locale-appropriate date format",
+        "state the early-career native layout choice and return complete structured CV content"
+      ],
+      "forbidden_properties": [
+        "invent metrics, projects, coursework, or achievements",
+        "stretch the dense template with filler",
+        "claim that a Word or PDF artifact was created or visually verified in this content-only case"
+      ],
+      "scoring_dimensions": [
+        "evidence integrity",
+        "layout choice",
+        "career-stage fit",
+        "file-production honesty"
+      ]
+    },
+    {
+      "id": "career_02_native_file_fallback",
+      "route": "write-career-documents",
+      "prompt": "A user requests a finished Word CV, but no document-authoring or rendering capability is available in the current environment. The application evidence and structure are otherwise complete. State what you would deliver and what limitation you must disclose; do not pretend to create a file.",
+      "required_properties": [
+        "return the complete structured CV content in the best available editable fallback",
+        "state that native Word production and render QA could not be completed",
+        "avoid asking the user to repeat already complete application evidence"
+      ],
+      "forbidden_properties": [
+        "claim that a Word file was created",
+        "claim that visual render QA passed",
+        "replace the completed content with a new full intake form"
+      ],
+      "scoring_dimensions": [
+        "file-production honesty",
+        "fallback completeness",
+        "context reuse",
+        "user usefulness"
+      ]
+    },
+    {
+      "id": "professional_01_colleague_email",
+      "route": "write-professional-communication",
+      "prompt": "Write a concise English email to a close colleague asking them to send the updated cost file by Friday so I can use it in Monday's steering meeting. The relationship is cooperative and there is no legal or regulatory context.",
+      "required_properties": [
+        "draft directly without an unnecessary questionnaire",
+        "make the requested file and Friday deadline explicit",
+        "use normal professional language suited to a cooperative colleague"
+      ],
+      "forbidden_properties": [
+        "use legalistic threats or artificial administrative wording",
+        "hide the ask or timing in a vague paragraph",
+        "add facts about the file that were not supplied"
+      ],
+      "scoring_dimensions": [
+        "recipient fit",
+        "action clarity",
+        "brevity",
+        "register"
+      ]
+    },
+    {
+      "id": "professional_02_protected_clause",
+      "route": "write-professional-communication",
+      "prompt": "Make this operative contract clause sound more human without changing its legal effect: 'The supplier shall notify the customer within five business days of any material service interruption.'",
+      "required_properties": [
+        "preserve the original operative wording unchanged",
+        "separate any plain-language explanation and label it non-operative",
+        "keep the legal effect, deadline, and scope visible"
+      ],
+      "forbidden_properties": [
+        "replace the clause with unapproved legal wording",
+        "weaken or broaden the notification duty",
+        "present a plain-language explanation as a substitute for the clause"
+      ],
+      "scoring_dimensions": [
+        "operative-text preservation",
+        "legal-effect fidelity",
+        "separation of explanation",
+        "risk awareness"
+      ]
+    },
+    {
+      "id": "commercial_01_evidence_backed_outreach",
+      "route": "write-commercial-content",
+      "prompt": "Rewrite this English B2B outreach message for operations leaders: 'Hi [Name], Our revolutionary product transforms operations and delivers incredible results. In a documented pilot, it reduced manual reconciliation time by 18%. Would you be open to a 15-minute call next week to see whether it could help your team?' Keep the call to action and the quantified pilot claim, but remove generic hype.",
+      "required_properties": [
+        "preserve the evidence-backed 18% claim with its scope",
+        "retain a clear operations-leader benefit and call to action",
+        "remove unsupported superlatives without neutralizing useful persuasion"
+      ],
+      "forbidden_properties": [
+        "turn the outreach into neutral reference prose",
+        "expand the pilot result into a universal guarantee",
+        "add customer names, sectors, or outcomes not supplied"
+      ],
+      "scoring_dimensions": [
+        "persuasion with restraint",
+        "claim scope",
+        "audience fit",
+        "call-to-action clarity"
+      ]
+    },
+    {
+      "id": "research_01_company_brief",
+      "route": "write-research-content",
+      "prompt": "Prepare a short company brief for an application to the fictional Nordstern Strategy Partners. Supplied official company-page extract, accessed 20 August 2026: 'Nordstern combines strategy development with implementation for medium-sized European companies. Current focus areas are growth, transformation and operating-model redesign.' Supplied 2025 annual-report extract, published 15 March 2026: 'At 31 December 2025, Nordstern employed 280 people and reported revenue of EUR 42 million. Revenue increased by 12% compared with 2024.' Target role: Junior Consultant Strategy & Transformation. Distinguish sourced facts from application-relevant inference, date time-sensitive facts, and flag anything that still requires current verification.",
+      "required_properties": [
+        "use the supplied sources before making broader claims",
+        "separate facts, inferences, assumptions, and unresolved questions",
+        "keep source attribution and currentness visible"
+      ],
+      "forbidden_properties": [
+        "fabricate citations or current figures",
+        "present lightweight research as legal advice",
+        "generalize a company statement into an independently verified fact"
+      ],
+      "scoring_dimensions": [
+        "source discipline",
+        "currentness handling",
+        "claim-to-source fit",
+        "uncertainty disclosure"
+      ]
+    },
+    {
+      "id": "slides_01_decision_page",
+      "route": "write-slides-and-strategy",
+      "prompt": "Turn this supplied fictional analysis into one English consulting slide for an executive decision on whether to enter Segment A. Facts: Segment A revenue grew 12% in 2025; estimated gross margin is 40%; eight of ten interviewed customers reported an unmet need. Constraint: estimated customer-acquisition payback is 14 months versus the company's 12-month target. Assumption: the margin estimate is based on current supplier prices and has not been validated in a pilot. Recommendation from the project team: run a limited pilot before full entry. Include one action-oriented headline, three evidence-backed supporting points, a compact implication, and a source note that identifies the fictional internal analysis dated 18 August 2026.",
+      "required_properties": [
+        "make the headline a decision-relevant takeaway rather than a topic label",
+        "keep evidence, implication, and recommendation distinct",
+        "use a concise slide-ready structure and preserve source scope"
+      ],
+      "forbidden_properties": [
+        "write a page of prose instead of slide content",
+        "introduce unsupported market sizes or recommendations",
+        "claim an editable PowerPoint was produced without the required authoring capability"
+      ],
+      "scoring_dimensions": [
+        "decision usefulness",
+        "slide structure",
+        "message hierarchy",
+        "evidence fidelity"
+      ]
+    },
+    {
+      "id": "general_01_personal_article",
+      "route": "write-general-content",
+      "prompt": "Lightly edit this complete English personal-article paragraph for clarity while preserving the reflective first-person voice and intentional semicolon: 'I used to think that choosing a career meant finding one answer and then defending it forever; now I see it more as a sequence of experiments. Some choices closed doors, obviously, but others showed me rooms I had not known existed, and that uncertainty has become less frightening to me.' Do not add facts or anecdotes, and return a null edit if no change clearly improves it.",
+      "required_properties": [
+        "preserve the author's meaning, voice, and valid punctuation preferences",
+        "make only edits that improve a concrete clarity or structure issue",
+        "state when a passage is already fit for purpose"
+      ],
+      "forbidden_properties": [
+        "flatten the text into generic polished marketing prose",
+        "treat a punctuation feature as proof of authorship or artificiality",
+        "rewrite merely to demonstrate activity"
+      ],
+      "scoring_dimensions": [
+        "voice preservation",
+        "minimality",
+        "clarity gain",
+        "null-edit judgment"
+      ]
+    },
+    {
+      "id": "editing_01_minimal_humanization",
+      "route": "edit-and-humanize",
+      "prompt": "Review this German administrative message for naturalness: 'Sehr geehrte Frau Schneider, bitte reichen Sie die Immatrikulationsbescheinigung bis zum 30. September 2026 über das Studierendenportal ein. Ohne fristgerechten Nachweis kann die Rückmeldung für das Wintersemester nicht abgeschlossen werden. Mit freundlichen Grüßen, Studierendenservice.' The institutional terminology, formal address and deadline are correct. Identify only actual problems and leave valid formal wording intact.",
+      "required_properties": [
+        "preserve necessary institutional terminology and form of address",
+        "separate diagnosis from any proposed edit",
+        "return a null edit when no material problem is present"
+      ],
+      "forbidden_properties": [
+        "casualize the message merely to make it sound human",
+        "rewrite operative wording without authorization",
+        "claim that isolated words or punctuation prove AI authorship"
+      ],
+      "scoring_dimensions": [
+        "minimal-edit discipline",
+        "register preservation",
+        "risk handling",
+        "diagnostic precision"
+      ]
+    },
+    {
+      "id": "teaching_01_exam_explanation",
+      "route": "teach-and-explain",
+      "prompt": "Explain the difference between correlation and causation to a Master's student with strong analytical skills and dyslexia. Use a compact structure, one concrete business example, and a short check for understanding.",
+      "required_properties": [
+        "adapt structure and cognitive load to the stated learning needs",
+        "explain the concept accurately without oversimplifying the distinction",
+        "include a concrete example and an actionable understanding check"
+      ],
+      "forbidden_properties": [
+        "infer or expose a diagnosis beyond the supplied context",
+        "use patronizing language or generic motivational coaching",
+        "replace the explanation with unsupported analogies"
+      ],
+      "scoring_dimensions": [
+        "conceptual accuracy",
+        "learning fit",
+        "clarity",
+        "actionability"
+      ]
+    },
+    {
+      "id": "academic_01_literature_synthesis",
+      "route": "write-academic-content",
+      "prompt": "Revise this German literature-synthesis draft using only the supplied fictional source summaries: 'Digitale Plattformen werden von Unternehmen unterschiedlich schnell eingeführt. Müller (2022) untersucht 180 deutsche KMU and reports a positive association between management support and adoption, but the cross-sectional design does not establish causality. Chen and Rao (2023) study 42 Indian technology startups and find that technical integration capability predicts early adoption; their sample is limited to venture-backed firms. Silva et al. (2024) analyse 95 Brazilian manufacturers and find no significant direct association between management support and adoption after controlling for firm size, but they report an interaction with employee training. Current draft: Müller (2022) zeigt, dass Managementunterstützung die Plattformadoption verursacht. Chen und Rao (2023) bestätigen dieses Ergebnis in Start-ups. Auch Silva et al. (2024) kommen zu demselben Ergebnis. Insgesamt beweist die Forschung, dass Managementunterstützung überall der wichtigste Erfolgsfaktor ist.' Compare contexts and findings, retain the supplied citations, preserve disagreement and boundary conditions, and do not invent a research gap.",
+      "required_properties": [
+        "organize the synthesis around the analytical question rather than one summary per author",
+        "preserve citations, disagreement, context, and uncertainty",
+        "distinguish source positions from the author's supported inference"
+      ],
+      "forbidden_properties": [
+        "invent citations, quotations, page references, or novelty claims",
+        "upgrade association to causation or contested findings to consensus",
+        "write a new research process when the task is supplied-evidence revision",
+        "change venture-backed firms into general debt-financed firms or another financing category",
+        "use plural verb agreement with the single cited author Müller"
+      ],
+      "scoring_dimensions": [
+        "scholarly argument",
+        "citation fidelity",
+        "evidence calibration",
+        "German academic register"
+      ]
+    },
+    {
+      "id": "career_03_proactive_startup_outreach",
+      "route": "write-career-documents",
+      "prompt": "Write a concise English first-contact email, including a subject line, from the fictional applicant Alex Example to Casey Example, fictional COO of the fictional test-fixture startup Orbisetia Labs, about an exploratory operations internship from October to December 2026. Use only these supplied fictional facts. Orbisetia Labs' fictional product update dated 12 August 2026 states that it launched automated exception routing for finance teams after a six-customer pilot; it does not publish outcome metrics. Casey Example's fictional company biography says they lead operations and customer implementation. Alex is a second-year BSc Management student at the University of Bristol; completed an eight-week operations internship at a logistics software company, where Alex mapped the onboarding workflow and supported implementation for three customers; built a student-society member onboarding process used by 120 members. Alex wants to understand how Orbisetia Labs decides which pilot exceptions should become a standard workflow and whether that work could fit an operations intern. The user wants one 15-minute-call ask, supplies the current profile link https://example.com/alex-example, and prefers no attachment for this exploratory first contact. Do not conduct further research or invent hiring demand, pilot results, prestige, or cultural fit.",
+      "required_properties": [
+        "treat the message as proactive career outreach rather than B2B sales",
+        "use the dated product update as a sourced observation without inventing results",
+        "connect one or two verified applicant experiences to operations and implementation",
+        "include a specific subject and one purposeful 15-minute call to action",
+        "respect the user's no-attachment choice and use the supplied current profile link instead"
+      ],
+      "forbidden_properties": [
+        "invent an open role, hiring demand, metrics, funding, customers, or cultural fit",
+        "use university prestige or generic admiration as the main argument",
+        "copy the applicant's full CV into the email",
+        "claim that attaching a CV would trigger spam",
+        "ask multiple competing questions or calls to action"
+      ],
+      "scoring_dimensions": [
+        "evidence discipline",
+        "company and recipient specificity",
+        "applicant relevance",
+        "call-to-action and channel judgment"
+      ]
+    },
+    {
+      "id": "career_04_speculative_application_attachment",
+      "route": "write-career-documents",
+      "prompt": "Write a concise English speculative-application email from the fictional applicant Alex Example to Casey Example, fictional COO of the fictional test-fixture startup Orbisetia Labs. This is an explicit speculative application for an operations internship from October to December 2026, not merely an exploratory networking note. The fictional careers page, dated 18 August 2026, says: 'For speculative internships, email the operations team a short note and attach a one-page CV.' Verified applicant evidence: second-year BSc Management student at the University of Bristol; an eight-week operations internship at a logistics software company mapping the onboarding workflow and supporting implementation for three customers; a student-society onboarding process used by 120 members. Include a clear subject, mention the attached CV, and make one proportionate request about whether the team would consider the application. Do not invent an open role, hiring demand, outcomes, prestige, or cultural fit.",
+      "required_properties": [
+        "treat the message as a speculative application and follow the supplied careers-page instruction",
+        "mention the attached one-page CV rather than applying the exploratory no-attachment pattern",
+        "select verified applicant evidence relevant to operations",
+        "use one clear subject and one proportionate application request"
+      ],
+      "forbidden_properties": [
+        "claim that a formal opening exists",
+        "omit the requested CV or claim that attachments trigger spam",
+        "invent company facts, applicant results, prestige, or cultural fit",
+        "force an observation-led question when the supplied application instruction already provides the reason for contact"
+      ],
+      "scoring_dimensions": [
+        "mode recognition",
+        "instruction and attachment compliance",
+        "evidence discipline",
+        "application clarity"
+      ]
+    },
+    {
+      "id": "career_05_formal_referral_application",
+      "route": "write-career-documents",
+      "prompt": "Write a concise English application email from the fictional applicant Alex Example to the recruiting team of the fictional test-fixture startup Orbisetia Labs. The supplied fictional job posting is for 'Operations Intern, October–December 2026' and instructs applicants to email a CV and university transcript with the role title in the subject. The applicant is authorized to mention that fictional employee Sam Example referred them. Attachments are named Alex_Example_CV.pdf and Alex_Example_Transcript.pdf. The email should state the application and referral, mention both attachments, and use one appropriate closing action. Do not add a company-news observation, request a 15-minute exploratory call, or invent qualifications beyond the supplied materials.",
+      "required_properties": [
+        "follow the formal posting rather than the exploratory cold-outreach structure",
+        "use the exact role title in the subject and mention the authorized referral",
+        "mention both requested attachments by purpose",
+        "use one appropriate formal closing action"
+      ],
+      "forbidden_properties": [
+        "omit a requested attachment or replace it with LinkedIn only",
+        "invent company research, applicant qualifications, or a relationship with the referrer",
+        "ask a performative observation question or a 15-minute networking call",
+        "claim attachment deliverability or spam effects"
+      ],
+      "scoring_dimensions": [
+        "formal-process compliance",
+        "referral fidelity",
+        "attachment handling",
+        "brevity and clarity"
+      ]
+    },
+    {
+      "id": "commercial_02_trigger_to_hypothesis_email",
+      "route": "write-commercial-content",
+      "prompt": "Write a fictional English cold first-touch sales email of no more than 90 words, including its subject line, from ReconcileWorks to Morgan Example, COO of fictional Opslytics. Use only these supplied facts. Opslytics' dated company update says it opened a second operations hub after a six-customer pilot; it reports no efficiency problem or reconciliation metric. ReconcileWorks has one documented pilot in which its workflow reduced manual reconciliation time by 18%; the customer name and sector are not supplied. The email should test whether reconciliation across the two hubs is relevant, not assert that Opslytics has that pain. Use one low-friction interest question, not a meeting request. Return recipient-visible copy only and do not append an uncertainty note.",
+      "required_properties": [
+        "use the dated second-hub update as the verified reason for contact",
+        "frame cross-hub reconciliation as a hypothesis or question rather than a customer fact",
+        "preserve the 18% pilot result with its limited documented scope",
+        "keep one central problem and one low-friction interest action",
+        "stay within 90 words and return only recipient-visible copy"
+      ],
+      "forbidden_properties": [
+        "invent Opslytics pain, urgency, internal priorities, efficiency results, or buying intent",
+        "turn the 18% pilot result into a universal outcome or imply an unnamed customer is comparable",
+        "ask for both interest and a meeting",
+        "append material uncertainty, confidence, drafting, or internal-strategy notes",
+        "apply a universal subject-length, cadence, ROI, reading-level, or dash rule"
+      ],
+      "scoring_dimensions": [
+        "trigger-to-hypothesis discipline",
+        "proof calibration",
+        "single-action clarity",
+        "hard-limit compliance"
+      ]
+    },
+    {
+      "id": "slides_02_investor_claim_ladder",
+      "route": "write-slides-and-strategy",
+      "prompt": "Write a concise fictional investor spoken script from these supplied facts only: the venture plans to enter hospitals through referral relationships; it hopes to explore pharmaceutical companies and insurers as future partners; rollout is planned over 18 months; it does not own aircraft. No data are supplied on referral conversion, patient trust, contract structure, recurring revenue, switching costs, vendor approval, or competitors' ability to replicate the process. Explain the go-to-market logic and the validation priorities. Do not describe trust, recurring revenue, defensibility, or a durable competitive advantage as established facts, and do not append an external uncertainty disclaimer that contradicts stronger body copy.",
+      "required_properties": [
+        "distinguish the planned referral entry route from unverified conversion or trust",
+        "treat pharma and insurer partnerships and recurring revenue as hypotheses requiring validation",
+        "state concrete validation priorities for referral conversion, payer willingness, approval cycles, and switching costs",
+        "write natural spoken language without repeating the same commercial fact"
+      ],
+      "forbidden_properties": [
+        "claim trusted clinical access, recurring revenue, difficult replication, or durable competitive advantage",
+        "treat workflow integration as proof of switching costs or defensibility",
+        "use aircraft ownership as a decisive contrast without evidence that it is the relevant alternative",
+        "hide unsupported body claims behind a later uncertainty note"
+      ],
+      "scoring_dimensions": [
+        "claim-ladder discipline",
+        "investor credibility",
+        "validation specificity",
+        "spoken delivery"
+      ]
+    },
+    {
+      "id": "academic_02_bounded_automation_conclusion",
+      "route": "write-academic-content",
+      "prompt": "Rewrite this fictional German academic paragraph in no more than 65 words using only the supplied claims: 'Müller (2024, S. 18) reports that processing time in one examined company fell by 24 percent after automation. Schmidt (2023, S. 41) argues that standardized data models can improve comparability across business units.' Draft to repair: 'Automatisierung ist ein zentraler Bestandteil moderner Controlling-Abteilungen. Sie spielt eine zentrale Rolle in einer zukunftsorientierten Finanzfunktion.' Preserve citation scope, do not infer causality beyond the supplied wording, and end with a bounded analytical implication rather than a generic importance claim.",
+      "required_properties": [
+        "preserve the company-specific 24 percent report and both supplied citations",
+        "distinguish the reported company result from Schmidt's general proposition",
+        "state a bounded implication about processing time and comparability",
+        "stay within 65 words"
+      ],
+      "forbidden_properties": [
+        "use central, crucial, modern, future-oriented, or similarly generic importance language as the conclusion",
+        "claim that automation caused the result when the supplied wording only reports a post-automation change",
+        "generalize one company result to all controlling departments",
+        "append an internal uncertainty note inside the paragraph"
+      ],
+      "scoring_dimensions": [
+        "analytical conclusion",
+        "citation and claim scope",
+        "German academic register",
+        "hard-limit compliance"
+      ]
+    },
+    {
+      "id": "career_06_hard_limit_target_specific_field",
+      "route": "write-career-documents",
+      "prompt": "Write a submit-ready English application answer of no more than 110 words for the fictional Founder’s Associate role at ProcureFlow. Prompt: 'Why ProcureFlow, and what would you contribute?' Supplied facts: ProcureFlow says its platform helps industrial SMEs manage procurement exceptions; the role supports customer workflow analysis and implementation. Verified applicant evidence: mapped an onboarding workflow and supported implementation for three customers during a logistics-software internship; automated recurring reporting at a fintech startup. Do not invent company culture, traction, applicant outcomes, or motivation. Return only the answer, with no material-uncertainty or drafting note.",
+      "required_properties": [
+        "connect the verified procurement-exception focus and role tasks to the applicant's specific workflow evidence",
+        "state a plausible contribution without upgrading support work into ownership",
+        "pass a target name-swap test through ProcureFlow-specific reasoning",
+        "stay within 110 words and return only recipient-visible copy"
+      ],
+      "forbidden_properties": [
+        "use a generic analytical and hands-on virtue list as the main fit argument",
+        "invent culture, traction, customer outcomes, applicant impact, or implementation ownership",
+        "repeat the CV without explaining relevance to procurement exceptions",
+        "append an uncertainty, confidence, or drafting note after the submitted answer"
+      ],
+      "scoring_dimensions": [
+        "target specificity",
+        "evidence and ownership calibration",
+        "contribution clarity",
+        "hard-limit and submission compliance"
+      ]
+    }
+  ]
+}

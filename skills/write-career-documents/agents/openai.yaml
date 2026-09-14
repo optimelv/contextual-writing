@@ -1,0 +1,6 @@
+interface:
+  display_name: "Career Documents"
+  short_description: "Build evidence-based CVs and cover letters"
+  default_prompt: "Use $write-career-documents to build a tailored CV or cover letter from my verified experience."
+policy:
+  allow_implicit_invocation: false

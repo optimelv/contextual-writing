@@ -1,0 +1,36 @@
+{
+  "name": "contextual-writing",
+  "version": "0.1.0+codex.20260906030000",
+  "description": "A context-aware German and English writing, editing, intake, and lightweight research system.",
+  "author": {
+    "name": "Contextual Writing contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "research",
+    "cv",
+    "email",
+    "humanizing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Contextual Writing",
+    "shortDescription": "Context-aware writing without generic AI style.",
+    "longDescription": "Create, research, edit, and quality-check German and English content through context gates, evidence locks, optional style profiles, and deliverable-specific workflows.",
+    "developerName": "Contextual Writing contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Edit",
+      "Research",
+      "Review"
+    ],
+    "defaultPrompt": [
+      "Build a tailored CV from my verified experience.",
+      "Draft this message for the actual recipient and goal.",
+      "Audit this text and change only what improves it."
+    ]
+  }
+}

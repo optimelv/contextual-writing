@@ -1,0 +1,6 @@
+interface:
+  display_name: "Slides and Strategy"
+  short_description: "Shape consulting, startup, and decision narratives"
+  default_prompt: "Use $write-slides-and-strategy to build a decision-led slide narrative from this evidence."
+policy:
+  allow_implicit_invocation: false

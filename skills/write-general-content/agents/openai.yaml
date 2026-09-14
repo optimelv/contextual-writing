@@ -1,0 +1,6 @@
+interface:
+  display_name: "General Content"
+  short_description: "Write articles, posts, web copy, and personal prose"
+  default_prompt: "Use $write-general-content to draft this content for the specified audience, channel, and voice."
+policy:
+  allow_implicit_invocation: false

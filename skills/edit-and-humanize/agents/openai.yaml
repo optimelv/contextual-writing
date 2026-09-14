@@ -1,0 +1,6 @@
+interface:
+  display_name: "Edit and Humanize"
+  short_description: "Improve text without flattening voice or changing claims"
+  default_prompt: "Use $edit-and-humanize to audit and minimally revise this text while preserving its meaning and voice."
+policy:
+  allow_implicit_invocation: false

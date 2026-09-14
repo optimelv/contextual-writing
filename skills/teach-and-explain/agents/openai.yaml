@@ -1,0 +1,6 @@
+interface:
+  display_name: "Teach and Explain"
+  short_description: "Create clear explanations and learning materials"
+  default_prompt: "Use $teach-and-explain to explain this at the requested level and learning format."
+policy:
+  allow_implicit_invocation: false

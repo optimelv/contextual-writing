@@ -1,0 +1,30 @@
+profile_version: 1
+profile_name: ""
+languages:
+  primary: ""
+  additional: []
+  english_variant: ""
+  proficiency_notes: ""
+audiences_and_contexts: []
+voice:
+  register: ""
+  directness: ""
+  information_density: ""
+  sentence_range: ""
+  paragraph_range: ""
+  vocabulary_notes: ""
+  punctuation_notes: ""
+  first_person_and_humor: ""
+preferences:
+  preferred_terms: []
+  avoid_terms: []
+  formatting: ""
+  accessibility_and_processing: ""
+protected_facts_and_wording: []
+sample_sources:
+  count: 0
+  languages: []
+  notes: ""
+consent:
+  user_reviewed_profile: false
+  approved_storage_path: ""
