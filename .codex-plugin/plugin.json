@@ -1,9 +1,12 @@
 {
   "name": "contextual-writing",
-  "version": "0.1.0+codex.20260906030000",
+  "version": "0.1.0+codex.20260914221325",
   "description": "A context-aware German and English writing, editing, intake, and lightweight research system.",
+  "homepage": "https://github.com/optimelv/contextual-writing",
+  "repository": "https://github.com/optimelv/contextual-writing",
   "author": {
-    "name": "Contextual Writing contributors"
+    "name": "Contextual Writing contributors",
+    "url": "https://github.com/optimelv/contextual-writing"
   },
   "license": "MIT",
   "keywords": [
