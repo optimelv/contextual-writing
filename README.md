@@ -13,7 +13,9 @@ git clone https://github.com/optimelv/contextual-writing.git
 claude --plugin-dir ./contextual-writing
 ```
 
-Claude Code can also load the packaged plugin from a release asset. The current release is available at [v0.1.0](https://github.com/optimelv/contextual-writing/releases/tag/v0.1.0).
+Claude Code can also load the packaged plugin from a release asset. The current release is available at [v0.1.1](https://github.com/optimelv/contextual-writing/releases/tag/v0.1.1), with the direct [Claude plugin download](https://github.com/optimelv/contextual-writing/releases/download/v0.1.1/contextual-writing-claude.plugin).
+
+Release tags run the repository's validation workflow and rebuild the Claude `.plugin` asset from the same tagged source. This keeps the Claude package synchronized with the Codex-compatible source instead of maintaining a second implementation.
 
 ## Components
 

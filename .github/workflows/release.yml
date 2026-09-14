@@ -1,0 +1,43 @@
+name: Validate and package
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Validate deterministic contracts
+        run: python3 scripts/run_tests.py
+
+  claude-release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@v4
+      - name: Build Claude plugin archive
+        run: |
+          staging_dir="$(mktemp -d)"
+          rsync -a --exclude='.git/' --exclude='.codex-plugin/' --exclude='__pycache__/' --exclude='*.pyc' ./ "$staging_dir/"
+          (cd "$staging_dir" && zip -qr "$GITHUB_WORKSPACE/contextual-writing-claude.plugin" .)
+      - name: Publish Claude plugin asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" contextual-writing-claude.plugin --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" contextual-writing-claude.plugin \
+              --title "Contextual Writing $GITHUB_REF_NAME" \
+              --generate-notes
+          fi
