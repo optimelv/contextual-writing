@@ -2,6 +2,19 @@
 
 Contextual Writing is a shareable German and English writing plugin. It creates, researches, edits, and reviews content according to the real audience, purpose, language, evidence, risk, and output format. It does not impose one personality or one universal style.
 
+## Codex and Claude compatibility
+
+This repository is the single source of truth for both runtimes. Codex reads `.codex-plugin/plugin.json`; Claude Code and Claude Cowork read `.claude-plugin/plugin.json`. The skills, references, templates, guards, and tests are shared so the Claude version is kept current with the Codex version instead of becoming a separate fork.
+
+For a one-session Claude Code test, clone the repository and load it directly:
+
+```bash
+git clone https://github.com/optimelv/contextual-writing.git
+claude --plugin-dir ./contextual-writing
+```
+
+Claude Code can also load the packaged plugin from a release asset. The current release is available at [v0.1.0](https://github.com/optimelv/contextual-writing/releases/tag/v0.1.0).
+
 ## Components
 
 | Skill | Primary scope |
