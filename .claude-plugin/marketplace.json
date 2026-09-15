@@ -1,0 +1,15 @@
+{
+  "name": "contextual-writing",
+  "owner": {
+    "name": "optimelv",
+    "url": "https://github.com/optimelv"
+  },
+  "description": "A self-hosting marketplace for the Contextual Writing plugin.",
+  "plugins": [
+    {
+      "name": "contextual-writing",
+      "source": "./",
+      "description": "Context-aware German and English writing, editing, intake, and lightweight research system."
+    }
+  ]
+}

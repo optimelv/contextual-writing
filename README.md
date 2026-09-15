@@ -6,16 +6,14 @@ Contextual Writing is a shareable German and English writing plugin. It creates,
 
 This repository is the single source of truth for both runtimes. Codex reads `.codex-plugin/plugin.json`; Claude Code and Claude Cowork read `.claude-plugin/plugin.json`. The skills, references, templates, guards, and tests are shared so the Claude version is kept current with the Codex version instead of becoming a separate fork.
 
-For a one-session Claude Code test, clone the repository and load it directly:
+For Claude Code, add the repository as a self-hosting marketplace and install the plugin:
 
-```bash
-git clone https://github.com/optimelv/contextual-writing.git
-claude --plugin-dir ./contextual-writing
+```text
+/plugin marketplace add optimelv/contextual-writing-skill
+/plugin install contextual-writing@contextual-writing
 ```
 
-Claude Code can also load the packaged plugin from a release asset. The current release is available at [v0.1.1](https://github.com/optimelv/contextual-writing/releases/tag/v0.1.1), with the direct [Claude plugin download](https://github.com/optimelv/contextual-writing/releases/download/v0.1.1/contextual-writing-claude.plugin).
-
-Release tags run the repository's validation workflow and rebuild the Claude `.plugin` asset from the same tagged source. This keeps the Claude package synchronized with the Codex-compatible source instead of maintaining a second implementation.
+The repository is both the marketplace and the plugin through `.claude-plugin/marketplace.json`; no release asset or build step is required. `/plugin update` pulls the current GitHub version.
 
 ## Components
 
